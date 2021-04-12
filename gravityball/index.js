@@ -3,7 +3,9 @@ const ctx = canvas.getContext("2d")
 canvas.width = window.innerWidth
 canvas.height = window.innerHeight
 
-
+function randomNumber(start, end) {
+    return Math.floor(Math.floor(Math.random() * (end + 1) + start))
+}
 
 function Ball(x, y, dx, dy, radius, color) {
     this.x = x;
@@ -44,12 +46,12 @@ const colorArray = ['#A8C0CE', '#AAB0B5', '#768591', '#DEA800', '#EEEC00']
 function init() {
     ballArray = []
     for (let i = 0; i < 200; i++) {
-        const raduis = Math.floor(Math.random() * 15 + 1);
+        const raduis = randomNumber(1, 15);
         const x = Math.floor(Math.random() * (canvas.width - raduis * 2) + raduis)
         const y = Math.floor(Math.random() * (canvas.height - raduis * 2) + raduis)
-        const dx = [4, -4][Math.floor(Math.random() * 2)];
+        const dx = [4, -4][randomNumber(0, 1)];
         const dy = 1;
-        const color = colorArray[Math.floor(Math.random() * 4 + 1)]
+        const color = colorArray[randomNumber(0, 3)]
         ballArray.push(new Ball(x, y, dx, dy, raduis, color))
     }
 }

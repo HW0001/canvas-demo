@@ -53,17 +53,20 @@ Ball.prototype = {
     }
 }
 
+function randomNumber(start, end) {
+    return Math.floor(Math.floor(Math.random() * (end + 1) + start))
+}
 const ball = new Ball(300, 400, 1, 1, 50, 'red')
 const ballArray = []
 const colorArray = ['#A8C0CE', '#AAB0B5', '#768591', '#DEA800', '#EEEC00']
 
 for (let i = 0; i < 200; i++) {
-    const raduis = Math.random() * 4 + 1;
+    const raduis = randomNumber(1, 3);
     const x = Math.random() * (canvas.width - raduis * 2) + raduis
     const y = Math.random() * (canvas.height - raduis * 2) + raduis
-    const dx = Math.random() + 1;
-    const dy = Math.random() + 1;
-    const color = colorArray[Math.floor(Math.random() * 4 + 1)]
+    const dx = +(['-', '+'][randomNumber(0, 1)] + randomNumber(1, 2));
+    const dy = +(['-', '+'][randomNumber(0, 1)] + randomNumber(1, 2));
+    const color = colorArray[randomNumber(0, 3)]
     ballArray.push(new Ball(x, y, dx, dy, raduis, color))
 }
 
