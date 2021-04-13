@@ -66,7 +66,7 @@ for (let i = 0; i < 200; i++) {
     const y = Math.random() * (canvas.height - raduis * 2) + raduis
     const dx = +(['-', '+'][randomNumber(0, 1)] + randomNumber(1, 2));
     const dy = +(['-', '+'][randomNumber(0, 1)] + randomNumber(1, 2));
-    const color = colorArray[randomNumber(0, 3)]
+    const color = colorArray[randomNumber(0, 4)]
     ballArray.push(new Ball(x, y, dx, dy, raduis, color))
 }
 
